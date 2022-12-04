@@ -95,14 +95,12 @@ namespace ComparingObjects_05
 
             int numberTargetPerson = int.Parse(Console.ReadLine()); // людина з якою будуть відбуватись порівняння
 
-            Person targetPerson = people[numberTargetPerson - 1]; // якшо буде хоч одне співп
-
             int counterEqualPeople = 0; // кількість співпадінь
             int counterNotEqualPeople = 0; // кількість не співпадінь
 
             foreach (Person person in people)
             {
-                bool areEqual = person.CompareTo(targetPerson) == 0; // якщо буде хоч одне співпадіння
+                bool areEqual = person.CompareTo(people[numberTargetPerson - 1]) == 0; // якщо буде хоч одне співпадіння
                 if (areEqual)
                 {
                     counterEqualPeople++;
