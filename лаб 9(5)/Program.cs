@@ -6,9 +6,9 @@ using System.Text;
 
 namespace ComparingObjects_05
 {
-    public class Person : IComparable<Person>
+    public class Person : IComparable<Person> //реалізація класу через інтерфейс IComparable<> в якому є метод IComparer 
     {
-        private string name;
+        private string name; // є поля ім'я, вік та місто
         private int age;
         private string town;
 
@@ -55,17 +55,17 @@ namespace ComparingObjects_05
             }
         }
 
-        public int CompareTo(Person other)
+        public int CompareTo(Person other) // метод Comparer - порівнює між собою двох людей 
         {
-            int result = this.Name.CompareTo(other.Name);
+            int result = this.Name.CompareTo(other.Name); // спочатку їхні імена
 
             if (result == 0)
             {
-                result = this.Age.CompareTo(other.Age);
+                result = this.Age.CompareTo(other.Age); // далі їхній вік
 
                 if (result == 0)
                 {
-                    result = this.Town.CompareTo(other.Town);
+                    result = this.Town.CompareTo(other.Town); // в кінці їхні міста
                 }
             }
 
@@ -81,7 +81,7 @@ namespace ComparingObjects_05
 
             string input = string.Empty;
 
-            while ((input = Console.ReadLine()) != "END")
+            while ((input = Console.ReadLine()) != "END") // після END програма закінчує роботу
             {
                 string[] elements = input.Split(" ").ToArray();
 
@@ -90,7 +90,7 @@ namespace ComparingObjects_05
                 string town = elements[2];
 
                 Person person = new Person(name, age, town);
-                people.Add(person);
+                people.Add(person); // додає та виводить персону з ім'ям, віком та містом
             }
 
             int numberTargetPerson = int.Parse(Console.ReadLine());
