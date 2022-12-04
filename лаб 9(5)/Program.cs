@@ -93,32 +93,32 @@ namespace ComparingObjects_05
                 people.Add(person); // додає та виводить персону з ім'ям, віком та містом
             }
 
-            int numberTargetPerson = int.Parse(Console.ReadLine());
+            int numberTargetPerson = int.Parse(Console.ReadLine()); // людина з якою будуть відбуватись порівняння
 
-            Person targetPerson = people[numberTargetPerson - 1];
+            Person targetPerson = people[numberTargetPerson - 1]; // якшо буде хоч одне співп
 
-            int counterEqualPeople = 0;
-            int counterNotEqualPeople = 0;
+            int counterEqualPeople = 0; // кількість співпадінь
+            int counterNotEqualPeople = 0; // кількість не співпадінь
 
             foreach (Person person in people)
             {
-                bool areEqual = person.CompareTo(targetPerson) == 0;
+                bool areEqual = person.CompareTo(targetPerson) == 0; // якщо буде хоч одне співпадіння
                 if (areEqual)
                 {
                     counterEqualPeople++;
                 }
-                else
+                else  // якщо не буде ні одного співпадіння
                 {
                     counterNotEqualPeople++;
                 }
             }
 
-            bool areFound = counterEqualPeople > 1;
+            bool areFound = counterEqualPeople > 1; // якщо будуть співпадіння
             if (areFound)
             {
                 Console.WriteLine($"{counterEqualPeople} {counterNotEqualPeople} {people.Count}");
             }
-            else
+            else // якщо не будуть співпадіння
             {
                 Console.WriteLine("No matches");
             }
